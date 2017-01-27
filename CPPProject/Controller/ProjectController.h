@@ -13,6 +13,11 @@ class ProjectController
 {
 public:
     void start();
+private:
+    void tryNumbers(int sent);
+    int changeNumber();
+    void changeWithPointer(int * numberPointer);
+    void pointerMethod();
 };
 
 #endif /* ProjectController_h */
