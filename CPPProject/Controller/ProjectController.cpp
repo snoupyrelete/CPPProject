@@ -8,25 +8,35 @@
 
 #include <iostream>
 #include "ProjectController.h"
+// You USUALLY NEVER INCLUDE CPP!
+#include "../Model/Timer.hpp"
+
 
 using namespace std;
 
 void ProjectController :: start()
 {
+    Timer sillyTime = Timer();
+    
+    sillyTime.startTimer();
+    
     tryNumbers(5);
     cout << endl;
-    
     int myNumber = 23465;
-    
     int * numberPointer = &myNumber;
-    
     myNumber = changeNumber();
     cout << "Changed? " << myNumber << endl;
-    
     changeWithPointer(numberPointer);
     cout << "Changed??" << myNumber << endl;
-    
     pointerMethod();
+    
+    sillyTime.stopTimer();
+    
+    sillyTime.displayTimerInformation();
+    
+    sillyTime.resetTimer();
+    cout << sillyTime.getExecutionTimeInMicroseconds() << endl;
+    
 }
 
 void ProjectController :: tryNumbers(int sent)
